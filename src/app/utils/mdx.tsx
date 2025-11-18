@@ -18,7 +18,8 @@ import { fetchCompiledContent, CompiledMDX } from "./content-source";
 export async function renderSafeMdx(compiled: CompiledMDX) {
   // In production, mdast is already compiled and included
   // Only parse in development mode when mdast is null
-  const isDevelopment = process.env.NEXTJS_ENV === "development";
+  const isDevelopment = process.env.NODE_ENV === "development";
+
   const mdast =
     compiled.mdast || (isDevelopment ? mdxParse(compiled.raw) : null);
   if (!mdast) {
