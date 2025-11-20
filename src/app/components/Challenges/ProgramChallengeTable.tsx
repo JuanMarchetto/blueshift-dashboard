@@ -20,6 +20,7 @@ import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { ChallengeMetadata } from "@/app/utils/challenges";
 import { useSearchParams } from "next/navigation";
+import { URLS } from "@/constants/urls";
 
 // Copy feedback timeout duration
 const COPY_FEEDBACK_TIMEOUT_MS = 3000; // 3 seconds
@@ -34,7 +35,7 @@ interface ChallengeTableProps {
   verificationData: VerificationApiResponse | null;
   challenge: ChallengeMetadata;
   onRedoChallenge: () => void;
-  /** 
+  /**
    * Number of failed attempts before showing Discord prompt.
    * Includes upload errors, verification failures, and test failures.
    * @default 2
@@ -165,7 +166,7 @@ export default function ChallengeTable({
    * Renders the assistance prompt when failed attempts threshold is reached
    */
   const renderAssistancePrompt = () => {
-    if (failedAttempts < failedAttemptsThreshold || !process.env.NEXT_PUBLIC_DISCORD_LINK) {
+    if (failedAttempts < failedAttemptsThreshold) {
       return null;
     }
 
@@ -186,7 +187,7 @@ export default function ChallengeTable({
             <p className="text-sm text-secondary leading-relaxed">
               {t("ChallengePage.assistance_prompt.body")}
             </p>
-            <Link href={process.env.NEXT_PUBLIC_DISCORD_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-x-1 mt-2 text-sm font-medium text-brand-secondary hover:text-brand-primary">
+            <Link href={URLS.BLUESHIFT_DISCORD} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-x-1 mt-2 text-sm font-medium text-brand-secondary hover:text-brand-primary">
               {t("ChallengePage.assistance_prompt.link_text")}
               <Icon name="Link" size={14} />
             </Link>

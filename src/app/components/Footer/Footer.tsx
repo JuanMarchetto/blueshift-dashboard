@@ -1,15 +1,16 @@
 import { Link } from "@/i18n/navigation";
 import Icon from "../Icon/Icon";
+import { URLS } from "@/constants/urls";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  const twitterLink = process.env.NEXT_PUBLIC_TWITTER_LINK ?? "";
-  const discordLink = process.env.NEXT_PUBLIC_DISCORD_LINK ?? "";
-  const githubLink = process.env.NEXT_PUBLIC_GITHUB_LINK ?? "";
+  const twitterLink = URLS.BLUESHIFT_TWITTER;
+  const discordLink = URLS.BLUESHIFT_DISCORD;
+  const githubLink = URLS.BLUESHIFT_GITHUB;
   const build =
     process.env.NEXT_PUBLIC_COMMIT_HASH?.substring(0, 7) ?? "DEVELOPMENT";
-  
+
   return (
     <div className="border-t border-t-border bg-background-card py-8">
       <div className="wrapper">

@@ -7,13 +7,14 @@ import Button from "../Button/Button";
 import { usePersistentStore } from "@/stores/store";
 import DepletingHeart from "../Icon/icons/DepletingHeart";
 import { useState } from "react";
+import { URLS } from "@/constants/urls";
 
 export default function MarketingBanner() {
   const t = useTranslations();
   const { setMarketingBannerViewed, _hasHydrated, marketingBannerViewed } =
     usePersistentStore();
 
-  const stakingUrl = process.env.NEXT_PUBLIC_STAKING_URL ?? "#";
+  const stakingUrl = URLS.BLUESHIFT_STAKING;
 
   const [closeHeart, setCloseHeart] = useState(false);
 

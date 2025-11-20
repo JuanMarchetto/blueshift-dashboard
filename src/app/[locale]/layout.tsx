@@ -15,6 +15,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { headers } from "next/headers";
 import { Toaster } from "react-hot-toast";
 import Icon from "@/app/components/Icon/Icon";
+import { URLS } from "@/constants/urls";
 
 const FiraCode = Fira_Code({
   subsets: ["latin"],
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: RootLayoutProps) {
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
-    metadataBase: new URL("https://learn.blueshift.gg"),
+    metadataBase: new URL(URLS.BLUESHIFT_EDUCATION),
     title: t("title"),
     description: t("description"),
     keywords: t("keywords"),
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }: RootLayoutProps) {
       siteName: t("title"),
       images: [
         {
-          url: "https://learn.blueshift.gg/graphics/meta-image.png",
+          url: `${URLS.BLUESHIFT_EDUCATION}/graphics/meta-image.png`,
           width: 1200,
           height: 628,
         },

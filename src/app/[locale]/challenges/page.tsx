@@ -5,6 +5,7 @@ import CrosshairCorners from "@/app/components/Graphics/CrosshairCorners";
 import { Metadata } from "next";
 import { getPathname } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import { URLS } from "@/constants/urls";
 
 interface ChallengesPageProps {
   params: Promise<{
@@ -35,7 +36,7 @@ export async function generateMetadata({
       url: pathname,
       images: [
         {
-          url: "https://learn.blueshift.gg/graphics/meta-image.png",
+          url: `${URLS.BLUESHIFT_EDUCATION}/graphics/meta-image.png`,
           width: 1200,
           height: 628,
         },
