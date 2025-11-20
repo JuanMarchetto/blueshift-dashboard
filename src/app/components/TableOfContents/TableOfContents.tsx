@@ -7,10 +7,11 @@ import { anticipate } from "motion";
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { URLS } from "@/constants/urls";
 
 function getGithubSourceUrl(pathname: string): string {
   const url =
-    "https://github.com/blueshift-gg/blueshift-dashboard/tree/master/src/app/content";
+    `${URLS.BLUESHIFT_EDUCATION_REPO}/tree/master/src/app/content`;
   const pathParts = pathname.replace(/^\//, "").split("/");
   const [locale, type, courseOrChallenge, lessonOrPage] = pathParts;
 

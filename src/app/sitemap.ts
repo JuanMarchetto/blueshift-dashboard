@@ -2,8 +2,9 @@ import { MetadataRoute } from "next";
 import { challenges } from "@/app/content/challenges/challenges";
 import { courses } from "@/app/content/courses/courses";
 import { routing } from "@/i18n/routing";
+import { URLS } from "@/constants/urls";
 
-const BASE_URL = "https://learn.blueshift.gg";
+const BASE_URL = URLS.BLUESHIFT_EDUCATION;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
